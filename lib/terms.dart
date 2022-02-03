@@ -66,9 +66,32 @@ class MobileViewTermsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(children: const [
-          Expanded(child: TextReader("lib/assets/text/privacy.txt")),
-        ]),
+        body:        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                // physics: const NeverScrollableScrollPhysics(),
+                itemCount: sections.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final section = sections[index];
+
+                  return SectionWidget(
+                    key: section.key,
+                    section: section,
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+
+
+
+
+
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         floatingActionButton: FloatingActionButton(
             shape: BeveledRectangleBorder(

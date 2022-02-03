@@ -42,11 +42,7 @@ final sections = [
       reallyLongBody),
   Section(
       GlobalKey(), 'Security: How we protect your information', reallyLongBody),
-  // Section(GlobalKey(), 'Permissible Age', reallyLongBody),
-  // Section(GlobalKey(), 'Third party links and services', reallyLongBody),
-  // Section(GlobalKey(), 'California privacy rights', reallyLongBody),
-  // Section(GlobalKey(), 'EU privacy/data protection rights', reallyLongBody),
-  // Section(GlobalKey(), 'Data retention and account termination', reallyLongBody),
+
 ];
 
 class PrivacyPage extends StatelessWidget {
@@ -70,151 +66,57 @@ class MobileViewPrivacyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body:
-            // SingleChildScrollView(
-            // child: Expanded(
-            Column(
+        Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-          Expanded(
-              flex: 6,
-              child: SingleChildScrollView(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                          child: ListView.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemCount: sections.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                final section = sections[index];
+                  Expanded(
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                     // physics: const NeverScrollableScrollPhysics(),
+                      itemCount: sections.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        final section = sections[index];
 
-                                return SectionWidget(
-                                  key: section.key,
-                                  section: section,
-                                );
-                              },
-                              prototypeItem: Expanded(
-                                flex: 2,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        flex: 4,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
-                                              color: Colors.white,
-                                              border: Border.all(
-                                                  color: Colors.black)),
-                                          child: Column(
-                                            children: const [
-                                              SizedBox(
-                                                height: 20,
-                                              ),
-                                              Center(
-                                                child: Text(
-                                                  'Previous',
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.normal,
-                                                      fontSize: 13),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              Text(
-                                                " << Guidelines and Policies ",
-                                                style: TextStyle(
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.redAccent),
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        height: 30,
-                                        width: 40,
-                                      ),
-                                      Expanded(
-                                        flex: 4,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
-                                              color: Colors.white,
-                                              border: Border.all(
-                                                  color: Colors.black)),
-                                          child: Column(
-                                            children: const [
-                                              SizedBox(
-                                                height: 20,
-                                              ),
-                                              Center(
-                                                child: Text(
-                                                  'Next',
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.normal,
-                                                      fontSize: 13),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              Center(
-                                                  child: Text(
-                                                "Terms and Service >>  ",
-                                                style: TextStyle(
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.redAccent),
-                                              ))
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              )))
-                    ]),
+                        return SectionWidget(
+                          key: section.key,
+                          section: section,
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
 
-                // floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-                // floatingActionButton: FloatingActionButton(
-                //     shape: BeveledRectangleBorder(
-                //         borderRadius: BorderRadius.circular(4.0)),
-                //     child: const Icon(
-                //       Icons.dehaze,
-                //       size: 20,
-                //   color: Colors.black,
-                // ),
-                // backgroundColor: Colors.grey,
-                // onPressed: () {
-                //   Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => Drawer(
-                //         child: Expanded(
-                //           flex: 0,
-                //           child: Padding(
-                //             padding: const EdgeInsets.all(16.0),
-                //             child: buildPolicies(),
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //   );
-                // })
-              ))
-        ]));
+        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+        floatingActionButton: FloatingActionButton(
+            shape: BeveledRectangleBorder(
+                borderRadius: BorderRadius.circular(4.0)),
+            child: const Icon(
+              Icons.dehaze,
+              size: 30,
+              color: Colors.black,
+            ),
+            backgroundColor: Colors.grey,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Drawer(
+                    child: Expanded(
+                      flex: 0,
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: buildPolicies(),
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            })
+        //))
+        // ])
+        );
   }
 }
 
@@ -262,29 +164,30 @@ class WideScreenPrivacyPage extends StatelessWidget {
             flex: 7,
             //  child: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                    child: ListView.builder(
-                  shrinkWrap: true,
-                  //physics: const NeverScrollableScrollPhysics(),
-                  itemCount: sections.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final section = sections[index];
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                      child: ListView.builder(
+                    shrinkWrap: true,
+                    //physics: const NeverScrollableScrollPhysics(),
+                    itemCount: sections.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final section = sections[index];
 
-                    return SectionWidget(
-                      key: section.key,
-                      section: section,
-                    );
-                  },
-                  // ),),
-                )),
-                const BuildButtons()]),),
-    // ) ],
-    //         ),
-            // ) ,
-
+                      return SectionWidget(
+                        key: section.key,
+                        section: section,
+                      );
+                    },
+                    // ),),
+                  )),
+                  const BuildButtons()
+                ]),
+          ),
+          // ) ],
+          //         ),
+          // ) ,
 
           const VerticalDivider(
             color: Colors.grey,
@@ -319,84 +222,83 @@ class BuildButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Expanded(
-                flex: 3,
-                child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16.0),
-                      color: Colors.white,
-                      border: Border.all(color: Colors.black)),
-                  child: Column(
-                    children: const [
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Center(
-                        child: Text(
-                          'Previous',
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal, fontSize: 13),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        " << Guidelines and Policies ",
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Expanded(
+              flex: 3,
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16.0),
+                    color: Colors.white,
+                    border: Border.all(color: Colors.black)),
+                child: Column(
+                  children: const [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Center(
+                      child: Text(
+                        'Previous',
                         style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.redAccent),
-                      )
-                    ],
-                  ),
+                            fontWeight: FontWeight.normal, fontSize: 13),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      " << Guidelines and Policies ",
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.redAccent),
+                    )
+                  ],
                 ),
               ),
-              const SizedBox(
-                height: 40,
-                width: 50,
-              ),
-              Expanded(
-                flex: 3,
-                child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16.0),
-                      color: Colors.white,
-                      border: Border.all(color: Colors.black)),
-                  child: Column(
-                    children: const [
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Center(
-                        child: Text(
-                          'Next',
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal, fontSize: 13),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Center(
-                          child: Text(
-                        "Terms and Service >>  ",
+            ),
+            const SizedBox(
+              height: 40,
+              width: 50,
+            ),
+            Expanded(
+              flex: 3,
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16.0),
+                    color: Colors.white,
+                    border: Border.all(color: Colors.black)),
+                child: Column(
+                  children: const [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Center(
+                      child: Text(
+                        'Next',
                         style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.redAccent),
-                      ))
-                    ],
-                  ),
+                            fontWeight: FontWeight.normal, fontSize: 13),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Center(
+                        child: Text(
+                      "Terms and Service >>  ",
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.redAccent),
+                    ))
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-
+      ),
     );
   }
 }
